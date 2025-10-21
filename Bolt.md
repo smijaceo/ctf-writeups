@@ -108,29 +108,27 @@ Nmap:
 `Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .`
 `Nmap done: 1 IP address (1 host up) scanned in 96.60 seconds`
 
-
 We see Bolt being hosted on port 8000.
 
 We find a password:
-![[Pasted image 20251021123924.png]]
+boltadmin123
 
 We find a user:
-![[Pasted image 20251021123941.png]]
+bolt
 
 Go to CMS login screen
 http://10.201.6.37:8000/bolt/login
 
 Shows us that it is version 3.7.1
-![[Pasted image 20251021125847.png]]
 
 This version is vulnerable to a authenticated RCE:
 use msfconsole to find "use exploit/unix/webapp/bolt_authenticated_rce"
 
 Set all options and set target to type 1
-
-![[Pasted image 20251021130009.png]]
+Then run the exploit
+Meterpreter will start
 
 After some basic file traversal we find flag.txt
-![[Pasted image 20251021130029.png]]
+THM{wh0_d035nt_l0ve5_b0l7_r1gh7?}
 
 Quick writeup! Thanks for stopping by!
